@@ -1,0 +1,24 @@
+[project]
+name = "lingus"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "docling==2.30.0",
+    "docling-core==2.27.0",
+    "torch==2.6.0",
+    "torchvision==0.21.0",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch" },
+]
+torchvision = [
+  { index = "pytorch" },
+]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
