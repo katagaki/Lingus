@@ -15,6 +15,9 @@ from docling_core.utils.file import DocumentStream
 
 from lingus import input_directory, pdf_directory_name, markdown_directory_name
 from lingus.files import filename, save_to_file
+from lingus.logging import configure_docling_logging
+
+configure_docling_logging()
 
 
 def convert_to_pdf(input_path: Path | str) -> bytes:
