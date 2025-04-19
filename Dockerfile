@@ -14,6 +14,7 @@ RUN uv sync --frozen --compile-bytecode --verbose && \
     uv cache clean
 RUN uv run docling-tools models download layout
 
+COPY lingus ./lingus
 COPY app.py ./
 
 CMD ["uv", "run", "app.py"]
