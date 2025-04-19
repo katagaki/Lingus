@@ -121,9 +121,11 @@ def save_to_file(content: str | bytes, file_path: str):
 def convert_to_pdf_then_markdown(input_filename: str) -> str:
     time_started: datetime = datetime.now()
     try:
+        print(f"Converting {input_filename} to PDF...")
         pdf_bytes: bytes = convert_to_pdf(path.join(input_directory, input_filename))
         print(f"Converted {input_filename} to PDF: {len(pdf_bytes)} bytes")
 
+        print(f"Converting {len(pdf_bytes)} bytes to Markdown...")
         markdown_string: str = convert_to_markdown(input_filename, pdf_bytes)
         print(f"Converted {len(pdf_bytes)} bytes to Markdown: {len(markdown_string)} characters")
 
@@ -142,9 +144,5 @@ def convert_to_pdf_then_markdown(input_filename: str) -> str:
 
 if __name__ == "__main__":
     input_filenames: list[str] = listdir(input_directory)
-    futures: list[Future] = [
+    for input_filename in input_filenames:
         executor.submit(convert_to_pdf_then_markdown, input_filename)
-        for input_filename in input_filenames
-    ]
-    for future in futures:
-        print(future.result())
