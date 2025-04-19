@@ -1,7 +1,7 @@
-from concurrent.futures import Future, ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from io import BytesIO
-from os import listdir, makedirs, path
+from os import environ, listdir, makedirs, path
 from pathlib import Path
 from shutil import rmtree
 from subprocess import run as run_subprocess
@@ -15,10 +15,10 @@ from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling_core.types.doc import ImageRefMode
 from docling_core.utils.file import DocumentStream
 
-executor: ThreadPoolExecutor = ThreadPoolExecutor(max_workers=5)
+executor: ThreadPoolExecutor = ThreadPoolExecutor(max_workers=int(environ.get("WORKER_LIMIT", "4")))
 
-input_directory: str = "./docs"
-output_directory: str = "./outputs"
+input_directory: str = f"./{environ.get('INPUT_DIRECTORY', 'docs')}"
+output_directory: str = f"./{environ.get('OUTPUT_DIRECTORY', 'outputs')}"
 pdf_directory_name: str = "pdf"
 markdown_directory_name: str = "markdown"
 
