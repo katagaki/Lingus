@@ -12,7 +12,7 @@ COPY pyproject.toml ./
 COPY uv.lock ./
 RUN uv sync --frozen --compile-bytecode --verbose && \
     uv cache clean
-RUN uv run docling-tools models download layout
+RUN uv run docling-tools models download --output-dir ./models
 
 COPY lingus ./lingus
 COPY app.py ./

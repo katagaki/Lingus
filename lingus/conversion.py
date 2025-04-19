@@ -68,6 +68,7 @@ def convert_to_markdown(file_path: str, input_pdf: bytes) -> str:
         format_options={
             InputFormat.PDF: PdfFormatOption(
                 pipeline_options=PdfPipelineOptions(
+                    artifacts_path="./models",
                     do_table_structure=True,
                     do_ocr=False,
                     table_structure_options=TableStructureOptions(
