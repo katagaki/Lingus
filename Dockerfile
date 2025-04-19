@@ -1,10 +1,10 @@
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 WORKDIR /app
 
-RUN apt update && \
-    apt -y install --no-install-recommends libreoffice libreoffice-core libreoffice-common libreoffice-java-common \
-    libreoffice-calc libreoffice-impress libreoffice-writer \
-    default-jre && \
+RUN echo "deb http://deb.debian.org/debian/ bookworm contrib" >> /etc/apt/sources.list && \
+    apt update && \
+    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections && \
+    apt -y install --no-install-recommends libreoffice openjdk-17-jre fontconfig ttf-mscorefonts-installer && \
     apt clean
 
 COPY pyproject.toml ./
