@@ -18,7 +18,7 @@ docker build -t lingus .
 3. Create and run a new Docker container.
 
 ```zsh
-docker run -v $(pwd)/outputs:/outputs lingus
+docker run -v $(pwd)/docs:/app/docs -v $(pwd)/outputs:/app/outputs lingus
 ```
 
 ## Notes

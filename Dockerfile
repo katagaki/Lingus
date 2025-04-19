@@ -15,6 +15,5 @@ RUN uv sync --frozen --compile-bytecode --verbose && \
 RUN uv run docling-tools models download layout
 
 COPY app.py ./
-COPY docs ./docs
 
 CMD ["uv", "run", "app.py"]

@@ -11,6 +11,10 @@
               <option name="containerPath" value="/app/outputs" />
               <option name="hostPath" value="$PROJECT_DIR$/outputs/" />
             </DockerVolumeBindingImpl>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/app/docs" />
+              <option name="hostPath" value="$PROJECT_DIR$/docs" />
+            </DockerVolumeBindingImpl>
           </list>
         </option>
       </settings>
