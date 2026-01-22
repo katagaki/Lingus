@@ -5,7 +5,7 @@ description = "PDF and Markdown conversion using Docling and LibreOffice"
 requires-python = ">=3.12"
 dependencies = [
     "docling==2.30.0",
-    "docling-core==2.27.0",
+    "docling-core==2.48.4",
     "torch==2.6.0",
     "torchvision==0.21.0",
 ]
